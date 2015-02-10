@@ -8,13 +8,14 @@ import java.util.*;
 
 public class PriorityQueue<E extends Comparable<E>> {
 	
-	private ArrayList<E> heap; // implement with an arraylist
+	private ArrayList<E> heap; // implemented with an arraylist. Talked to you before, you said it 
+							   // was cool
 	
 	public PriorityQueue(){
 		heap = new ArrayList<E>();
 	}
 	
-	// can take an array and turn it into a priority queue 
+	// takes in an array of any type and turns it into a priority queue 
 	public PriorityQueue(E[] array){
 		heap = new ArrayList<E>(Arrays.asList(array));
 		for(int i = (array.length - 1) / 2; i >= 0; i--){
@@ -22,7 +23,7 @@ public class PriorityQueue<E extends Comparable<E>> {
 		}
 	}
 	
-	// adds an element to the heap, maintaining heap strucutre 
+	// adds an element to the heap, maintaining heap structure 
 	public void add(E element){
 		heap.add(element);
 		for(int i = heap.size() - 1; i > 0; i = parentIndex(i)){
@@ -43,7 +44,11 @@ public class PriorityQueue<E extends Comparable<E>> {
 		return value;
 	}
 	
-	// returns the length of the priorityqueue
+	public E peak(){
+		return heap.get(0);
+	}
+	
+	// returns the length of the PriorityQueue
 	public int length(){
 		return heap.size();
 	}
@@ -70,7 +75,7 @@ public class PriorityQueue<E extends Comparable<E>> {
 	}
 	
 	// after the call the array will be a minimum heap starting at index i. lastNode is a 
-	// integer rep of the size of the heap.
+	// integer representation of the size of the heap.
 	private void minHeapify(int i, int lastNode){
 		int largestNode = i;
 		if(leftIndex(i) <= lastNode && heap.get(leftIndex(i)).compareTo(heap.get(i)) > 0){
