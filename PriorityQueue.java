@@ -2,8 +2,6 @@
 // 2/9/15
 // Ray Toal CMSI 282
 
-package Heap;
-
 import java.util.*;
 
 public class PriorityQueue<E extends Comparable<E>> {
@@ -44,7 +42,7 @@ public class PriorityQueue<E extends Comparable<E>> {
 		return value;
 	}
 	
-	public E peak(){
+	public E peek(){
 		return heap.get(0);
 	}
 	
